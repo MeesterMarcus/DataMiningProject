@@ -1,0 +1,24 @@
+//fw.close(); 
+	    
+	    /*
+		//Read from unclean data file and output new file with no -9999 values
+		//Need to implement state file ouput.
+		File infile = new File("climatedata.csv");
+		File outfile = new File ("climatedataclean.csv");
+	    FileReader fr = new FileReader(infile);
+	    FileWriter fw = new FileWriter(outfile);
+	    
+	    BufferedReader br = new BufferedReader(fr);
+	    String line;
+	    while((line = br.readLine()) != null){
+	        if(!line.contains("-9999")){
+	            fw.write(line);
+	            fw.write("\n");
+	            
+	            if (line.contains(states[43])){
+		        	System.out.println(line); 
+		        }
+	        } 
+	        
+	    }
+	    */

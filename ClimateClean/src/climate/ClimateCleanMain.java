@@ -5,9 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
-
-
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ClimateCleanMain {
 
@@ -18,27 +17,15 @@ public class ClimateCleanMain {
 		          "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
 		          "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"};
 		
-		//Create files for each states
-		File dir = new File("States");
-		dir.mkdir(); 
-		
-		File statefile;
-		
 		String[] statesSpaced = new String[51];
 		
-		for (int i = 0; i < states.length; i++) {
-			String stateFileName = states[i]; 
-			stateFileName = "States/"+stateFileName+".csv";
-			statefile = new File(stateFileName);
-			if (statefile.createNewFile()){
-				System.out.println("File created!");
-			} else {
-				System.out.println("File already exists."); 
-			}
-			
-		}
+		ArrayList<String> climateData = new ArrayList<String>(); 
+		boolean writeToFiles = false; 
+		File statefile,dir,infile;
 		
-		
+		//Create files for each states
+		dir = new File("States");
+		dir.mkdir(); 
 		
 		//Modify array so there is a space between state abbreviations.
 		for (int i = 0; i < states.length; i++) {
@@ -49,65 +36,69 @@ public class ClimateCleanMain {
 		}
 		
 		
-		File infile = new File("climatedata.csv");
+		infile = new File("climatedata.csv");
 	    FileReader fr = new FileReader(infile);
-	    
 	    BufferedReader br = new BufferedReader(fr);
+	    
 	    String line;
+	    System.out.println(); 
+	    
+	    //Read in climatedata.csv
+	    Scanner in = new Scanner(System.in); 
+	    System.out.println("[1. Save to ArrayList] [2. Save To Individual State Files]:");
+	    String answer = in.nextLine(); 
+	    if (answer.equals("1")) {
+	    	System.out.println("Selected Save to List"); 
+	    	writeToFiles = false; 
+	    } else if (answer.equals("2")) {
+	    	System.out.println("Selected Save to Files"); 
+	    	writeToFiles = true; 
+	    }
+	    
 	    while((line = br.readLine()) != null){
 	        if(!line.contains("-9999")){
-
+	        	climateData.add(line); 
+	        	
+	        	if (writeToFiles == true) {
 	            for (int i = 0; i < states.length; i++) {
 	            	
 	            	if (line.contains(statesSpaced[i])){
+	            		
 	            		
 	            		String stateFileName = states[i]; 
 	        			stateFileName = "States/"+stateFileName+".csv";
 	        			statefile = new File(stateFileName);
 	        			
 	        			FileWriter stateWriter = new FileWriter(statefile,true); 
+	        			if (statefile.length() == 0){
+	            			stateWriter.write("STATION,STATION_NAME,DATE,TPCP,MNTM\n"); 
+	            		}
 	        			stateWriter.write(line+"\n");
 	        			
 	        			System.out.printf("Writing [%s] to file [%s]\n",line,statefile);
 	        			stateWriter.flush(); 
 	        			stateWriter.close(); 
+	        			
 
 	            	}
 	            	
 	            	
 	            }
+	        	}
 	        } 
 	        
 	    }
 	    br.close();
 	    fr.close();
-	    //fw.close(); 
 	    
-	    /*
-		//Read from unclean data file and output new file with no -9999 values
-		//Need to implement state file ouput.
-		File infile = new File("climatedata.csv");
-		File outfile = new File ("climatedataclean.csv");
-	    FileReader fr = new FileReader(infile);
-	    FileWriter fw = new FileWriter(outfile);
+	    //printDataFromList(climateData); 
 	    
-	    BufferedReader br = new BufferedReader(fr);
-	    String line;
-	    while((line = br.readLine()) != null){
-	        if(!line.contains("-9999")){
-	            fw.write(line);
-	            fw.write("\n");
-	            
-	            if (line.contains(states[43])){
-		        	System.out.println(line); 
-		        }
-	        } 
-	        
-	    }
-	    */
-	   
-	    
-
+	}
+	
+	public static void printDataFromList(ArrayList<String> data) {
+		for (String line : data) {
+			System.out.println(line); 
+		}
 	}
 
 }
