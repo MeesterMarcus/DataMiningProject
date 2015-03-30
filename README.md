@@ -1,4 +1,7 @@
 # DataMiningProject
+**Project Members:**
+*Marcus Lorenzana : MeesterMarcus
+*Robert Vasquez : robertvasquez
 
 This is what we are going to need to do:
 [Time Series Analysis](http://wiki.pentaho.com/display/DATAMINING/Time+Series+Analysis+and+Forecasting+with+Weka)
