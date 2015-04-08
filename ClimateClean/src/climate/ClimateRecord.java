@@ -1,5 +1,7 @@
 package climate;
 
+import java.util.ArrayList;
+
 /**
  * This class holds a record of climate data. Each record
  * is a line from the file, separated by the comma delimiter.
@@ -78,6 +80,7 @@ public class ClimateRecord{
 	public String toString() {
 		return station+","+station_name+","+date+","+tpcp+","+mntm; 
 	}
+
 
 
 
