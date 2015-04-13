@@ -62,11 +62,7 @@ public class ClimateCleanStates {
 	        			stateFileName = "States/"+stateFileName+".csv";
 	        			statefile = new File(stateFileName);
 	        			
-	        			FileWriter stateWriter = new FileWriter(statefile,false); 
-	        			//If at the beginning of file, output the header
-	        			if (statefile.length() == 0){
-	            			stateWriter.write("STATION,STATION_NAME,DATE,TPCP,MNTM\n"); 
-	            		}
+	        			FileWriter stateWriter = new FileWriter(statefile,true); 
 	        			stateWriter.write(line+"\n");
 	        			//Progress reporting
 	        			System.out.printf("Writing [%s] to file [%s]\n",line,statefile);

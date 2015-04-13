@@ -16,9 +16,7 @@ public class ClimateAverage {
 		BufferedReader br = new BufferedReader(fr);
 
 		String line;
-		String header;
 
-		header = br.readLine();
 		line = br.readLine();
 
 		ClimateRecord firstRecord = new ClimateRecord(line);
@@ -44,21 +42,13 @@ public class ClimateAverage {
 			}
 		}
 
-		System.out.println("DATE,TEMP\n");
-		for (ClimateRecordList b : allBuckets) {
-
-			System.out.printf("%s,%.2f\n", b.getDate(), b.getMeanTemps() / 10);
-
-		}
 
 		File fileAverage = new File("AKavg.csv");
 		FileWriter fw = new FileWriter(fileAverage, false);
-		fw.write("DATE,TEMP\n");
 		for (ClimateRecordList b : allBuckets) {
 			
 			double temp = b.getMeanTemps()/10;
 			temp = Math.round(temp*100.0)/100.0; 
-			System.out.println(temp); 
 			fw.write(b.getDate() + "," + temp+"\n");
 
 		}
