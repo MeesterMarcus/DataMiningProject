@@ -56,7 +56,7 @@ public class ClimateCleanDatesAscending {
 		//Sort the records by date and write to AKSort.csv
 		Collections.sort(records, new ClimateDateComparator());
 		File sortFile = new File("AKSort.csv");
-		FileWriter sortWriter = new FileWriter(sortFile,true); 
+		FileWriter sortWriter = new FileWriter(sortFile,false); 
 		sortWriter.write("STATION,STATION_NAME,DATE,TPCP,MNTM\n"); 
 		for (ClimateRecord s : records) {
 		
