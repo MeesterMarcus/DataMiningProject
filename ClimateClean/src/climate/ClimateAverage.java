@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ClimateAverage {
 	public static void main(String args[]) throws IOException {
 		File infile;
-		infile = new File("AKSort.csv");
+		infile = new File("ALSort.csv");
 		FileReader fr = new FileReader(infile);
 		BufferedReader br = new BufferedReader(fr);
 
@@ -43,13 +43,21 @@ public class ClimateAverage {
 		}
 
 
-		File fileAverage = new File("AKavg.csv");
+		File fileAverage = new File("ALavg.csv");
 		FileWriter fw = new FileWriter(fileAverage, false);
+		
+		fw.write("DATE,MNTM,TPCP\n");
 		for (ClimateRecordList b : allBuckets) {
 			
 			double temp = b.getMeanTemps()/10;
 			temp = Math.round(temp*100.0)/100.0; 
-			fw.write(b.getDate() + "," + temp+"\n");
+			
+			double prec = b.getMeanPrec();
+			prec = Math.round(prec*100.0)/100.0;
+			
+			fw.write(b.getDate() + "," + temp+","+prec+"\n");
+			
+			
 
 		}
 

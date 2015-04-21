@@ -33,6 +33,16 @@ public class ClimateRecordList {
 		return sum/records.size(); 
 	}
 	
+	public double getMeanPrec(){
+		double sum = 0; 
+		for (int i = 0; i < records.size(); i++) {
+			ClimateRecord cr = records.get(i); 
+			double t = Integer.parseInt(cr.getTpcp()); 
+			sum += t; 
+			
+		}
+		return sum/records.size(); 
+	}
 	public String getDate(){
 		return records.get(0).getDate(); 
 	}

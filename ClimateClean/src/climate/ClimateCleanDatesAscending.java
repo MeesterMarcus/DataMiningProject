@@ -25,7 +25,7 @@ public class ClimateCleanDatesAscending {
 		 * all records pertaining to the state Arkansas
 		 */
 		File infile;
-		infile = new File("States/AK.csv");
+		infile = new File("States/AL.csv");
 		FileReader fr = new FileReader(infile);
 		BufferedReader br = new BufferedReader(fr);
 		
@@ -55,7 +55,7 @@ public class ClimateCleanDatesAscending {
 		
 		//Sort the records by date and write to AKSort.csv
 		Collections.sort(records, new ClimateDateComparator());
-		File sortFile = new File("AKSort.csv");
+		File sortFile = new File("ALSort.csv");
 		FileWriter sortWriter = new FileWriter(sortFile,false); 
 		for (ClimateRecord s : records) {
 		
