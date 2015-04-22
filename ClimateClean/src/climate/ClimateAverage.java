@@ -7,11 +7,20 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ClimateAverage {
 	public static void main(String args[]) throws IOException {
+		Scanner scan = new Scanner(System.in); 
+		System.out.println("Name of state (all caps): "); 
+		String state = scan.next(); 
+		String stateIn = state+"Sort.csv";
+		String stateOut = state+"Avg.arff";
+		
+		scan.close(); 
+		
 		File infile;
-		infile = new File("TXSort.csv");
+		infile = new File(stateIn);
 		FileReader fr = new FileReader(infile);
 		BufferedReader br = new BufferedReader(fr);
 
@@ -43,7 +52,7 @@ public class ClimateAverage {
 		}
 
 
-		File fileAverage = new File("TXavg.arff");
+		File fileAverage = new File(stateOut);
 		FileWriter fw = new FileWriter(fileAverage, false);
 		
 		fw.write("@relation state\n\n");

@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 
 /**
@@ -24,8 +25,16 @@ public class ClimateCleanDatesAscending {
 		 * Read in an arbitrary file, for this example, using AK which contains
 		 * all records pertaining to the state Arkansas
 		 */
+		Scanner scan = new Scanner(System.in); 
+		System.out.println("Name of state (all caps): "); 
+		String state = scan.next(); 
+		String stateIn = "States/"+state+".csv";
+		String stateOut = state+"Sort.csv";
+		
+		scan.close(); 
+		
 		File infile;
-		infile = new File("States/TX.csv");
+		infile = new File(stateIn);
 		FileReader fr = new FileReader(infile);
 		BufferedReader br = new BufferedReader(fr);
 		
@@ -55,7 +64,7 @@ public class ClimateCleanDatesAscending {
 		
 		//Sort the records by date and write to AKSort.csv
 		Collections.sort(records, new ClimateDateComparator());
-		File sortFile = new File("TXSort.csv");
+		File sortFile = new File(stateOut);
 		FileWriter sortWriter = new FileWriter(sortFile,false); 
 		for (ClimateRecord s : records) {
 		
