@@ -8,7 +8,7 @@
 This is what we are going to need to do:
 [Time Series Analysis](http://wiki.pentaho.com/display/DATAMINING/Time+Series+Analysis+and+Forecasting+with+Weka)
 
-**USAGE**
+**USAGE:**
 
 1. Download Weka Development version. Open package manager and install Time Series Forecast near the bottom.
 2. If would like to see how sorting of States works, run ClimateCleanStates
@@ -19,7 +19,7 @@ This is what we are going to need to do:
 7. Click Train future pred. tab to view the graph. Can also zoom in. 
 
 
-**Data Analysis Project**
+**Data Analysis Project:**
 
 In this type of project, the student will apply various data mining algorithms to analyze several data sets and report on interesting knowledge and patterns learned from the analysis.
 
