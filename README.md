@@ -9,16 +9,13 @@ This is what we are going to need to do:
 [Time Series Analysis](http://wiki.pentaho.com/display/DATAMINING/Time+Series+Analysis+and+Forecasting+with+Weka)
 
 **USAGE**
-
-1. If would like to see how sorting of States works, run ClimateCleanStates
-2. In ClimateCleanDatesAscending, pick your input and output file, and run. (might want to implement a scanner to get input from command line for this). 
-3. Run ClimateCleanAverage
-4. Open Weka, and open ARFF Viewer.
-5. Open the average .csv file (select type in explorer as csv or all). 
-6. Save the file as .arff
-7. Open the new .arff file in Weka and use the Forecast tool. Select DATE as the timestamp, and select tmp as the attribute. 
-8. Run the forecast. 
-9. If forecast tab is not there, need to download the development version of Weka and in package library, download the Time Series/Forecast tool. 
+1. Download Weka Development version. Open package manager and install Time Series Forecast near the bottom.
+2. If would like to see how sorting of States works, run ClimateCleanStates
+3. Run ClimateCleanDatesAscending and provide state abbreviation.
+4. Run ClimateCleanAverage and provide state abbreviation
+5. Open the new .arff file in Weka and use the Forecast tool. Set time units of forecast (optional).
+6. Select attributes and click start. 
+7. Click Train future pred. tab to view the graph. Can also zoom in. 
 
 
 **Data Analysis Project**
