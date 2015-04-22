@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ClimateAverage {
 	public static void main(String args[]) throws IOException {
 		File infile;
-		infile = new File("ALSort.csv");
+		infile = new File("TXSort.csv");
 		FileReader fr = new FileReader(infile);
 		BufferedReader br = new BufferedReader(fr);
 
@@ -43,10 +43,14 @@ public class ClimateAverage {
 		}
 
 
-		File fileAverage = new File("ALavg.csv");
+		File fileAverage = new File("TXavg.arff");
 		FileWriter fw = new FileWriter(fileAverage, false);
 		
-		fw.write("DATE,MNTM,TPCP\n");
+		fw.write("@relation state\n\n");
+		fw.write("@attribute timestamp DATE \"MM-yyyy\"\n");
+		fw.write("@attribute MNTM numeric\n");
+		fw.write("@attribute TPCP numeric\n\n");
+		fw.write("@data\n");
 		for (ClimateRecordList b : allBuckets) {
 			
 			double temp = b.getMeanTemps()/10;
@@ -55,7 +59,12 @@ public class ClimateAverage {
 			double prec = b.getMeanPrec();
 			prec = Math.round(prec*100.0)/100.0;
 			
-			fw.write(b.getDate() + "," + temp+","+prec+"\n");
+			String date = b.getDate(); 
+			
+			String year = date.substring(0, 4);
+			String month = date.substring(4, 6);
+			date = month+"-"+year;
+			fw.write(date + "," + temp+","+prec+"\n");
 			
 			
 
@@ -64,5 +73,7 @@ public class ClimateAverage {
 		fw.close();
 
 	}
+	
+	
 
 }
