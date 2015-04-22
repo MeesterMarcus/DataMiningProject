@@ -9,6 +9,7 @@ This is what we are going to need to do:
 [Time Series Analysis](http://wiki.pentaho.com/display/DATAMINING/Time+Series+Analysis+and+Forecasting+with+Weka)
 
 **USAGE**
+
 1. Download Weka Development version. Open package manager and install Time Series Forecast near the bottom.
 2. If would like to see how sorting of States works, run ClimateCleanStates
 3. Run ClimateCleanDatesAscending and provide state abbreviation.
