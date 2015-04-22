@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class ClimateAverage {
 	public static void main(String args[]) throws IOException {
 		Scanner scan = new Scanner(System.in); 
-		System.out.println("Name of state (all caps): "); 
+		System.out.println("Enter state (abbreviation all caps):"); 
 		String state = scan.next(); 
 		String stateIn = state+"Sort.csv";
 		String stateOut = state+"Avg.arff";

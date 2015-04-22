@@ -26,7 +26,7 @@ public class ClimateCleanDatesAscending {
 		 * all records pertaining to the state Arkansas
 		 */
 		Scanner scan = new Scanner(System.in); 
-		System.out.println("Name of state (all caps): "); 
+		System.out.println("Enter state (abbreviation all caps):"); 
 		String state = scan.next(); 
 		String stateIn = "States/"+state+".csv";
 		String stateOut = state+"Sort.csv";
