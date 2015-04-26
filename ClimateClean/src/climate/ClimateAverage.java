@@ -40,10 +40,16 @@ public class ClimateAverage {
 			String date = cr.getDate();
 
 			if (date.equals(firstRecord.getDate())) {
+				if (cl.size() == 0) {
+					cl.addClimateRecord(firstRecord);
+				}
 				cl.addClimateRecord(cr);
 			}
 
 			else {
+				if(cl.size() == 0){
+					cl.addClimateRecord(firstRecord);
+				}
 				firstRecord = cr;
 				allBuckets.add(cl);
 				cl = new ClimateRecordList();
@@ -55,7 +61,7 @@ public class ClimateAverage {
 		File fileAverage = new File(stateOut);
 		FileWriter fw = new FileWriter(fileAverage, false);
 		
-		fw.write("@relation state\n\n");
+		fw.write("@relation "+state+"\n\n");
 		fw.write("@attribute timestamp DATE \"MM-yyyy\"\n");
 		fw.write("@attribute MNTM numeric\n");
 		fw.write("@attribute TPCP numeric\n\n");
