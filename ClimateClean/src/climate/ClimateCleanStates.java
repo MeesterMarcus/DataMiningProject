@@ -68,7 +68,7 @@ public class ClimateCleanStates {
 		final long start = System.currentTimeMillis();
 		Pattern p = Pattern.compile(".* ([A-Z][A-Z]) US");
 		Map<String, FileWriter> fileMap = new HashMap<String, FileWriter>();
-		String stateFileName="";
+		String stateFileName=null;
 
 		while ((line = br.readLine()) != null) {
 		    if (!line.contains("-9999")) {
