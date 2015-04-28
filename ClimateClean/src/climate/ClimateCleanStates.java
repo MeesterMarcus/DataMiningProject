@@ -33,17 +33,19 @@ public class ClimateCleanStates {
 		System.out
 				.println("But if you would like to see how it works, you may continue.");
 		System.out.println("Please remove state files before running.");
-		System.out.println("\nIs the States directory empty?");
+		System.out.println("\nIs the States directory empty? (y/n)");
 		String answer = in.nextLine();
+		answer = answer.toLowerCase(); 
 
-		if (answer.equals("N")) {
+		if (answer.equals("n")) {
 			in.close();
 			System.exit(0);
 			
 		}
-		System.out.println("Would you like to run the program?");
+		System.out.println("Would you like to run the program? (y/n)");
 		String answer2 = in.nextLine();
-		if (answer2.equals("N")) {
+		answer2 = answer2.toLowerCase(); 
+		if (answer2.equals("n")) {
 			in.close();
 			System.exit(0);
 			
